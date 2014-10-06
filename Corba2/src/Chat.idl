@@ -1,0 +1,13 @@
+typedef sequence<string> Clients;
+
+
+interface Chat
+{
+
+void connect(in string pseudo);
+void disconnect(in string pseudo);
+Clients getClients();
+void sendMessage(in string from,in string to,in string message);
+string getMessage(in string pseudo);
+
+};
