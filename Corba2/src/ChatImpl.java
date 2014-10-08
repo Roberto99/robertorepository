@@ -1,8 +1,9 @@
 
+
 public class ChatImpl extends ChatPOA {
 	
 	String message;
-	String[] listeClients;
+	String[] listeClients = new String[100];
 
 	@Override
 	public void connect(String pseudo) {
@@ -22,14 +23,7 @@ public class ChatImpl extends ChatPOA {
 		return listeClients;
 	}
 
-	public void SetClients(String client){
-		
-		
-		
-		for (int i=0;i<listeClients.length;i++){
-		listeClients [i]=client;}
-		
-	}
+
 	
 	
 	@Override

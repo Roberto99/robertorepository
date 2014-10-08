@@ -102,26 +102,45 @@ Chat chat = ChatHelper.narrow(obj);
 	chat.connect(login);
 	
 	
-	while (true){
 	
-	if(login !=null)
-	{
-		//System.out.print("message? : ");
-		//String message = input.nextLine();
+	while (true){
+		
 		System.out.println("Message ? : ");
 		String newMessage= input.nextLine();
-		for (String client : chat.getClients()){
-			chat.sendMessage(login, client, newMessage);
-		}
+		for (int i=0; i < chat.getClients().length; i++)
+			{
+				chat.sendMessage(login, chat.getClients()[i], newMessage);
+			}
 		
 		//System.out.println(login + " dit :" + newMessage);
-	}
-	else
-	{
+		
 		System.out.print("Le login est vide");
 		
 	}
 }
+	
+	/*
+	while(true)
+	{
+		Scanner input = new Scanner(System.in);
+		System.out.print("login ? : ");
+		String login = input.nextLine();
+		chat.connect(login);
+		
+		if(login.equals("Zoubir"))
+		{
+			//System.out.print("message? : ");
+			//String message = input.nextLine();
+			String message=chat.getMessage("Zoubir");
+			System.out.println("Toto a dit :" + message);
+		}
+		else
+		{
+			System.out.print("message? : ");
+			String message = input.nextLine();
+			chat.sendMessage("Toto", "Zoubir", message);
+		}
+		*/
 
 }
 
