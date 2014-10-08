@@ -13,7 +13,7 @@ public class Server {
 java.util.Properties props = System.getProperties();
 
 
-int status = 0;
+int status = 0;	
 
 
 ORB orb = null;

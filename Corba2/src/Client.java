@@ -95,25 +95,31 @@ static void run(ORB orb)
 Chat chat = ChatHelper.narrow(obj);
 
 
-while(true)
-{
+
 	Scanner input = new Scanner(System.in);
 	System.out.print("login ? : ");
 	String login = input.nextLine();
 	chat.connect(login);
 	
-	if(login.equals("Zoubir"))
+	
+	while (true){
+	
+	if(login !=null)
 	{
 		//System.out.print("message? : ");
 		//String message = input.nextLine();
-		String message=chat.getMessage("Zoubir");
-		System.out.println("Zoubir a dit :" + message);
+		System.out.println("Message ? : ");
+		String newMessage= input.nextLine();
+		for (String client : chat.getClients()){
+			chat.sendMessage(login, client, newMessage);
+		}
+		
+		//System.out.println(login + " dit :" + newMessage);
 	}
 	else
 	{
-		System.out.print("message? : ");
-		String message = input.nextLine();
-		chat.sendMessage("Toto", "Zoubir", message);
+		System.out.print("Le login est vide");
+		
 	}
 }
 
