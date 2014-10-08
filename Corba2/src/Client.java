@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 import org.omg.CORBA.*;
 import org.omg.CosNaming.*;
 import org.omg.CORBA.ORBPackage.InvalidName;
@@ -92,9 +94,28 @@ static void run(ORB orb)
 
 Chat chat = ChatHelper.narrow(obj);
 
-chat.connect("Moi");
-//System.out.println(chat.connect("Moi"));
 
+while(true)
+{
+	Scanner input = new Scanner(System.in);
+	System.out.print("login ? : ");
+	String login = input.nextLine();
+	chat.connect(login);
+	
+	if(login.equals("Zoubir"))
+	{
+		//System.out.print("message? : ");
+		//String message = input.nextLine();
+		String message=chat.getMessage("Zoubir");
+		System.out.println("Zoubir a dit :" + message);
+	}
+	else
+	{
+		System.out.print("message? : ");
+		String message = input.nextLine();
+		chat.sendMessage("Toto", "Zoubir", message);
+	}
+}
 
 }
 
