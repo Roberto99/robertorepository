@@ -8,4 +8,6 @@
 
 public interface Chat extends ChatOperations, org.omg.CORBA.Object, org.omg.CORBA.portable.IDLEntity 
 {
+
+	
 } // interface Chat

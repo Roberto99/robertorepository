@@ -101,16 +101,19 @@ Chat chat = ChatHelper.narrow(obj);
 	String login = input.nextLine();
 	chat.connect(login);
 	
+	//chat.setClients(login);
 	
 	
 	while (true){
 		
 		System.out.println("Message ? : ");
 		String newMessage= input.nextLine();
-		for (int i=0; i < chat.getClients().length; i++)
-			{
-				chat.sendMessage(login, chat.getClients()[i], newMessage);
-			}
+
+		for (String client : chat.getClients()){
+			System.out.println ("ce qu'il y a dans client : "+ client);
+			chat.sendMessage(login, client, newMessage);
+		}
+
 		
 		//System.out.println(login + " dit :" + newMessage);
 		
@@ -145,5 +148,5 @@ Chat chat = ChatHelper.narrow(obj);
 }
 
 
-}
+
 
