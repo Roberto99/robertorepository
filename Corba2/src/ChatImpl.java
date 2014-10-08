@@ -1,34 +1,27 @@
+import java.util.ArrayList;
+
+
 
 
 public class ChatImpl extends ChatPOA {
 	
-	String message;
+	ArrayList <String> messages = new ArrayList <String>();
 
-	String[] listeClients = new String [100];
+	ArrayList <String> listeClients = new ArrayList<String>();
 
+	
 
 	@Override
 	public void connect(String pseudo) {
 		// TODO Auto-generated method stub
+		
 		System.out.println( pseudo + " s'est connecté");	
 		
-			int i =0;
-			
-			for (i=0; i<listeClients.length; i++){
-			//	System.out.println("création de la boucle for");
+		listeClients.add(pseudo);
 				
-				if (listeClients[i]==null) {
-				//	System.out.println("test if");
-					System.out.println("i :" + i);
-					listeClients [i]=pseudo;
-					System.out.println ("valeur de la première case du tablea" + listeClients[0]);
-					
-				}
-				
-			//System.out.println("Numéro du client + " +i+ ":" + listeClients[i]);
 			}
 		
-	}
+	
 
 	@Override
 	public void disconnect(String pseudo) {
@@ -39,7 +32,10 @@ public class ChatImpl extends ChatPOA {
 	@Override
 	public String[] getClients() {
 		// TODO Auto-generated method stub
-		return listeClients;
+		
+		String[] clientTableau = new String[listeClients.size()];
+		clientTableau=listeClients.toArray(clientTableau);
+		return clientTableau;
 	}
 
 
@@ -61,13 +57,22 @@ public class ChatImpl extends ChatPOA {
 	@Override
 	public void sendMessage(String from, String to, String message) {
 		// TODO Auto-generated method stub
-		this.message=message;
+		//this.message=message;
+		messages.add(message);
 	}
 
 	@Override
-	public String getMessage(String pseudo) {
+	public String getMessage (String pseudo) {
 		// TODO Auto-generated method stub
-		return message;
+		//String msg = messages.remove(messages.size()-1);
+		//messages.add(msg);
+		
+		if (messages.size()>=2) {
+			return messages.get(messages.size()-2);
+		}
+		else {
+				return "message par défaut";
+			 }
 	}
 
 }

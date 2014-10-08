@@ -101,23 +101,20 @@ Chat chat = ChatHelper.narrow(obj);
 	String login = input.nextLine();
 	chat.connect(login);
 	
-	//chat.setClients(login);
 	
 	
 	while (true){
 		
+	
 		System.out.println("Message ? : ");
 		String newMessage= input.nextLine();
-
+		
+	
 		for (String client : chat.getClients()){
-			System.out.println ("ce qu'il y a dans client : "+ client);
-			chat.sendMessage(login, client, newMessage);
+			
+			chat.sendMessage(login, client, newMessage);			
+			System.out.println(chat.getMessage(client));
 		}
-
-		
-		//System.out.println(login + " dit :" + newMessage);
-		
-		System.out.print("Le login est vide");
 		
 	}
 }
