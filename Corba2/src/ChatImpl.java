@@ -45,6 +45,9 @@ public class ChatImpl extends ChatPOA {
 		// TODO Auto-generated method stub
 		//this.message=message;
 		messages.add(message);
+		for (String mess : messages){
+		System.out.println("methode du serveur : " + mess);
+		}
 	}
 
 	@Override
@@ -59,6 +62,9 @@ public class ChatImpl extends ChatPOA {
 		else {
 				return "";
 			 }
+		
+		
+		
 	}
 
 }
