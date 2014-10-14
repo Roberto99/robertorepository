@@ -25,6 +25,7 @@ public class ChatImpl extends ChatPOA {
 
 	@Override
 	public void disconnect(String pseudo) {
+		System.out.println(pseudo + "s'est déconnecté");
 		// TODO Auto-generated method stub
 
 	}
@@ -36,24 +37,9 @@ public class ChatImpl extends ChatPOA {
 		String[] clientTableau = new String[listeClients.size()];
 		clientTableau=listeClients.toArray(clientTableau);
 		return clientTableau;
+	
 	}
 
-
-
-
-	/*public void setClients(String client){
-		
-		
-		
-		for (int i=0;i<listeClients.length;i++){
-		listeClients [i]=client;
-		System.out.println("Numéro du client + " +i+ ":" + listeClients[i]);
-		}
-		
-	}*/
-
-	
-	
 	@Override
 	public void sendMessage(String from, String to, String message) {
 		// TODO Auto-generated method stub
@@ -71,7 +57,7 @@ public class ChatImpl extends ChatPOA {
 			return messages.get(messages.size()-2);
 		}
 		else {
-				return "message par défaut";
+				return "";
 			 }
 	}
 
