@@ -14,9 +14,7 @@ public class ChatImpl extends ChatPOA {
 	@Override
 	public void connect(String pseudo) {
 		// TODO Auto-generated method stub
-		
 		System.out.println( pseudo + " s'est connecté");	
-		
 		listeClients.add(pseudo);
 				
 			}
@@ -53,8 +51,7 @@ public class ChatImpl extends ChatPOA {
 	@Override
 	public String getMessage (String pseudo) {
 		// TODO Auto-generated method stub
-		//String msg = messages.remove(messages.size()-1);
-		//messages.add(msg);
+	
 		
 		if (messages.size()>=2) {
 			return messages.get(messages.size()-2);

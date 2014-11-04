@@ -106,8 +106,7 @@ Chat chat = ChatHelper.narrow(obj);
 	while (true){
 		
 		for (String client : chat.getClients()){
-		//	System.out.println("valeur de client : " +client);
-			//System.out.println("valeur du login : " +login);
+	
 			if (client.equals(login)){
 				System.out.println ("Vous êtes bien connecté");}
 			
@@ -124,9 +123,8 @@ Chat chat = ChatHelper.narrow(obj);
 		chat.sendMessage(login, desti, newMessage);
 		System.out.println(chat.getMessage(login));
 	
-		// s'enlever du tableau de destinataires
-		// rajouter le thread pour récupérer l'ensemble des messages à chaque fois. 
-		
+		// rajouter le thread pour récupérer l'ensemble des messages à chaque fois 
+		// sans avoir besoin de redemander le destinataire !
 }
 	
 }
