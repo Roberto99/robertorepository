@@ -95,7 +95,7 @@ static void run(ORB orb)
 	Connection connection = ConnectionHelper.narrow(obj); //Chat chat = ChatHelper.narrow(obj);
 
 	connection.connect("Titi");
-	
+	//commentaire
 	}
 
 }
