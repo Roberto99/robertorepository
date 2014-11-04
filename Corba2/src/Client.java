@@ -92,55 +92,11 @@ static void run(ORB orb)
     obj = orb.string_to_object(ref);
     //obj = orb.string_to_object("relfile:/Hello.ref");*/
 
-Chat chat = ChatHelper.narrow(obj);
+	Connection connection = ConnectionHelper.narrow(obj); //Chat chat = ChatHelper.narrow(obj);
 
-
-
-	Scanner input = new Scanner(System.in);
-	System.out.print("login ? : ");
-	String login = input.nextLine();
-	chat.connect(login);
+	connection.connect("Titi");
 	
-	
-	
-	while (true){
-		
-	
-		System.out.println("Message ? : ");
-		String newMessage= input.nextLine();
-		
-	
-		for (String client : chat.getClients()){
-			
-			chat.sendMessage(login, client, newMessage);			
-			System.out.println(chat.getMessage(client));
-		}
-		
 	}
-}
-	
-	/*
-	while(true)
-	{
-		Scanner input = new Scanner(System.in);
-		System.out.print("login ? : ");
-		String login = input.nextLine();
-		chat.connect(login);
-		
-		if(login.equals("Zoubir"))
-		{
-			//System.out.print("message? : ");
-			//String message = input.nextLine();
-			String message=chat.getMessage("Zoubir");
-			System.out.println("Toto a dit :" + message);
-		}
-		else
-		{
-			System.out.print("message? : ");
-			String message = input.nextLine();
-			chat.sendMessage("Toto", "Zoubir", message);
-		}
-		*/
 
 }
 

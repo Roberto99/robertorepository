@@ -1,13 +1,20 @@
 typedef sequence<string> Clients;
+typedef sequence<string> Messages;
 
 
-interface Chat
+interface Dialogue
 {
 
-void connect(in string pseudo);
-void disconnect(in string pseudo);
-Clients getClients();
-void sendMessage(in string from,in string to,in string message);
-string getMessage(in string pseudo);
+	void sendMessage(in string to, in string message);
+	Messages getMessages();
+	Clients getClients();
+	void disconnect();
+
+};
+
+
+interface Connection
+{
+	Dialogue connect(in string nickname);
 
 };

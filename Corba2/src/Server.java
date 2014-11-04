@@ -57,8 +57,8 @@ orb.resolve_initial_references("RootPOA"));
 
 org.omg.PortableServer.POAManager manager = rootPOA.the_POAManager();
 
-ChatImpl chatImpl = new ChatImpl();
-Chat chat = chatImpl._this(orb);
+Connection_Impl connectionImpl = new Connection_Impl(); //ChatImpl chatImpl = new ChatImpl();
+Connection connection = connectionImpl._this(orb);      //Chat chat = chatImpl._this(orb); 
 
 obj=orb.resolve_initial_references("NameService");
 
@@ -74,7 +74,7 @@ NameComponent[] name = new NameComponent[1];
 
 name[0]=new NameComponent("ChatService","");
 
-ctx.rebind(name,chat);
+ctx.rebind(name,connection);// publier l'unterface de l'objet**ctx.rebind(name,chat);
 
 
 /*
